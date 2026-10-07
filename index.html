@@ -1720,3 +1720,448 @@ video{
     bottom:43%;
   }
 }
+<!-- =========================================================
+     PART 1D — HERO MOTION + VIDEO ENGINE
+     Paste directly below PART 1C
+     ========================================================= -->
+
+<script>
+document.addEventListener("DOMContentLoaded", () => {
+
+  /* ---------------------------------------------------------
+     1. GEMSTONE VIDEO
+     --------------------------------------------------------- */
+
+  /*
+    IMPORTANT:
+    Replace ONLY this value when you choose the final video.
+
+    Example:
+    const GEM_VIDEO_ID = "abc123xyz";
+  */
+
+  const GEM_VIDEO_ID = "VIDEO_ID";
+
+  const heroFrame = document.querySelector(
+    ".cg-hero-video iframe"
+  );
+
+  if (heroFrame && GEM_VIDEO_ID !== "VIDEO_ID") {
+
+    heroFrame.src =
+      "https://www.youtube.com/embed/" +
+      GEM_VIDEO_ID +
+      "?autoplay=1" +
+      "&mute=1" +
+      "&loop=1" +
+      "&playlist=" + GEM_VIDEO_ID +
+      "&controls=0" +
+      "&rel=0" +
+      "&modestbranding=1" +
+      "&playsinline=1" +
+      "&iv_load_policy=3";
+
+  }
+
+
+  /* ---------------------------------------------------------
+     2. LOADER
+     --------------------------------------------------------- */
+
+  const loader = document.querySelector(".cg-loader");
+
+  window.addEventListener("load", () => {
+
+    setTimeout(() => {
+
+      if (loader) {
+        loader.classList.add("is-hidden");
+      }
+
+      document.body.classList.add("cg-page-ready");
+
+    }, 550);
+
+  });
+
+
+  /* ---------------------------------------------------------
+     3. HERO MOUSE PARALLAX
+     --------------------------------------------------------- */
+
+  const hero = document.querySelector(".cg-hero");
+
+  const floatingGems =
+    document.querySelectorAll(".cg-floating-gem");
+
+  const heroLight =
+    document.querySelector(".cg-hero-light");
+
+  if (
+    hero &&
+    window.matchMedia("(pointer:fine)").matches
+  ) {
+
+    let mouseX = 0;
+    let mouseY = 0;
+
+    let currentX = 0;
+    let currentY = 0;
+
+    hero.addEventListener("mousemove", (event) => {
+
+      const rect = hero.getBoundingClientRect();
+
+      mouseX =
+        (event.clientX - rect.left) /
+        rect.width -
+        0.5;
+
+      mouseY =
+        (event.clientY - rect.top) /
+        rect.height -
+        0.5;
+
+    });
+
+    const animateParallax = () => {
+
+      currentX +=
+        (mouseX - currentX) * 0.055;
+
+      currentY +=
+        (mouseY - currentY) * 0.055;
+
+      floatingGems.forEach((gem, index) => {
+
+        const strength =
+          10 + index * 7;
+
+        const rotate =
+          22 + currentX * 7;
+
+        gem.style.transform =
+          `translate3d(
+            ${currentX * strength}px,
+            ${currentY * strength}px,
+            0
+          ) rotate(${rotate}deg)`;
+
+      });
+
+      if (heroLight) {
+
+        heroLight.style.transform =
+          `translate3d(
+            ${currentX * -25}px,
+            ${currentY * -18}px,
+            0
+          )`;
+
+      }
+
+      requestAnimationFrame(animateParallax);
+
+    };
+
+    animateParallax();
+
+  }
+
+
+  /* ---------------------------------------------------------
+     4. HERO SCROLL PARALLAX
+     --------------------------------------------------------- */
+
+  let ticking = false;
+
+  const updateHeroScroll = () => {
+
+    const scrollY = window.scrollY;
+
+    if (!hero) return;
+
+    const heroHeight =
+      hero.offsetHeight;
+
+    if (scrollY <= heroHeight) {
+
+      const progress =
+        Math.min(
+          scrollY / heroHeight,
+          1
+        );
+
+      const heroCopy =
+        document.querySelector(".cg-hero-copy");
+
+      if (heroCopy) {
+
+        heroCopy.style.transform =
+          `translate3d(
+            0,
+            ${scrollY * 0.12}px,
+            0
+          )`;
+
+        heroCopy.style.opacity =
+          1 - progress * 0.32;
+
+      }
+
+      if (heroFrame) {
+
+        heroFrame.style.transform =
+          `translate(-50%,-50%)
+           scale(${1.08 + progress * 0.04})`;
+
+      }
+
+    }
+
+    ticking = false;
+
+  };
+
+  window.addEventListener("scroll", () => {
+
+    if (!ticking) {
+
+      requestAnimationFrame(
+        updateHeroScroll
+      );
+
+      ticking = true;
+
+    }
+
+  }, {
+    passive:true
+  });
+
+
+  /* ---------------------------------------------------------
+     5. SMOOTH ANCHOR SCROLL
+     --------------------------------------------------------- */
+
+  document.querySelectorAll(
+    'a[href^="#"]'
+  ).forEach((link) => {
+
+    link.addEventListener("click", (event) => {
+
+      const targetID =
+        link.getAttribute("href");
+
+      if (
+        !targetID ||
+        targetID === "#"
+      ) return;
+
+      const target =
+        document.querySelector(targetID);
+
+      if (!target) return;
+
+      event.preventDefault();
+
+      target.scrollIntoView({
+        behavior:"smooth",
+        block:"start"
+      });
+
+    });
+
+  });
+
+
+  /* ---------------------------------------------------------
+     6. MOBILE VIDEO PERFORMANCE
+     --------------------------------------------------------- */
+
+  const isMobile =
+    window.matchMedia(
+      "(max-width:850px)"
+    ).matches;
+
+  if (isMobile && heroFrame) {
+
+    heroFrame.setAttribute(
+      "loading",
+      "eager"
+    );
+
+  }
+
+
+  /* ---------------------------------------------------------
+     7. REDUCED MOTION SUPPORT
+     --------------------------------------------------------- */
+
+  const reducedMotion =
+    window.matchMedia(
+      "(prefers-reduced-motion: reduce)"
+    ).matches;
+
+  if (reducedMotion) {
+
+    document.documentElement.classList.add(
+      "cg-reduced-motion"
+    );
+
+  }
+
+});
+</script>
+
+
+<style>
+
+/* ---------------------------------------------------------
+   LOADER EXIT
+   --------------------------------------------------------- */
+
+.cg-loader{
+  transition:
+    opacity .65s ease,
+    visibility .65s ease;
+}
+
+.cg-loader.is-hidden{
+  opacity:0;
+  visibility:hidden;
+  pointer-events:none;
+}
+
+
+/* ---------------------------------------------------------
+   PAGE READY
+   --------------------------------------------------------- */
+
+body:not(.cg-page-ready) .cg-hero-copy{
+  opacity:0;
+}
+
+body.cg-page-ready .cg-hero-copy{
+  opacity:1;
+}
+
+
+/* ---------------------------------------------------------
+   HERO SMOOTHNESS
+   --------------------------------------------------------- */
+
+.cg-hero-copy{
+  will-change:
+    transform,
+    opacity;
+}
+
+.cg-hero-video iframe{
+  will-change:
+    transform;
+}
+
+.cg-floating-gem{
+  will-change:
+    transform;
+}
+
+
+/* ---------------------------------------------------------
+   REDUCED MOTION
+   --------------------------------------------------------- */
+
+.cg-reduced-motion *,
+.cg-reduced-motion *::before,
+.cg-reduced-motion *::after{
+  animation-duration:.01ms !important;
+  animation-iteration-count:1 !important;
+  scroll-behavior:auto !important;
+  transition-duration:.01ms !important;
+}
+
+.cg-reduced-motion .cg-hero-copy{
+  transform:none !important;
+  opacity:1 !important;
+}
+
+
+/* ---------------------------------------------------------
+   HERO MOBILE TOUCH
+   --------------------------------------------------------- */
+
+@media(max-width:850px){
+
+  .cg-hero{
+    touch-action:pan-y;
+  }
+
+  .cg-hero-video iframe{
+    pointer-events:none;
+  }
+
+  .cg-floating-gem{
+    animation-duration:8s;
+  }
+
+}
+
+
+/* ---------------------------------------------------------
+   VERY SMALL PHONES
+   --------------------------------------------------------- */
+
+@media(max-width:380px){
+
+  .cg-hero-content{
+    padding-left:18px;
+    padding-right:18px;
+  }
+
+  .cg-hero-title{
+    font-size:47px;
+  }
+
+  .cg-hero-description{
+    font-size:13px;
+  }
+
+  .cg-hero-stats{
+    gap:11px;
+  }
+
+}
+
+
+/* ---------------------------------------------------------
+   LANDSCAPE MOBILE
+   --------------------------------------------------------- */
+
+@media(
+  max-width:850px
+) and (
+  orientation:landscape
+){
+
+  .cg-hero{
+    min-height:650px;
+  }
+
+  .cg-hero-content{
+    padding-top:70px;
+    padding-bottom:40px;
+  }
+
+  .cg-hero-title{
+    font-size:52px;
+  }
+
+}
+
+</style>
+
+
+<!-- =========================================================
+     PART 1D END
+     ========================================================= -->
