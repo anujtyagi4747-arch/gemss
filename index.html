@@ -1,0 +1,1722 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+
+<meta charset="UTF-8">
+
+<meta name="viewport"
+      content="width=device-width, initial-scale=1.0">
+
+<title>Ceremonial Gems — Natural Gemstones</title>
+
+<meta name="description"
+      content="Exceptional natural gemstones, rare colours and timeless beauty.">
+
+<link rel="preconnect"
+      href="https://fonts.googleapis.com">
+
+<link rel="preconnect"
+      href="https://fonts.gstatic.com"
+      crossorigin>
+
+<link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@300;400;500;600;700&family=Playfair+Display:wght@400;500;600;700&display=swap"
+      rel="stylesheet">
+
+
+<style>
+
+/* =====================================================
+   CEREMONIAL GEMS
+   PREMIUM LIGHT / VIBRANT SYSTEM
+   PART 1A
+   ===================================================== */
+
+:root{
+
+  --white:#ffffff;
+
+  --paper:#fbfaf7;
+
+  --cream:#f4efe5;
+
+  --ink:#171717;
+
+  --muted:#77736c;
+
+  --gold:#c49a52;
+
+  --gold-soft:#ead7ad;
+
+  --emerald:#087d65;
+
+  --ruby:#c72d4d;
+
+  --sapphire:#3768d5;
+
+  --yellow:#e1ae35;
+
+  --pink:#df7197;
+
+  --purple:#8561c5;
+
+  --orange:#e27b43;
+
+  --line:rgba(20,20,20,.09);
+
+  --ease:cubic-bezier(.22,1,.36,1);
+
+  --container:1380px;
+
+}
+
+
+/* RESET */
+
+*{
+  margin:0;
+  padding:0;
+  box-sizing:border-box;
+}
+
+html{
+  scroll-behavior:smooth;
+}
+
+body{
+
+  background:var(--white);
+
+  color:var(--ink);
+
+  font-family:"DM Sans",sans-serif;
+
+  overflow-x:hidden;
+
+  -webkit-font-smoothing:antialiased;
+
+}
+
+a{
+  color:inherit;
+  text-decoration:none;
+}
+
+button{
+  font:inherit;
+  border:0;
+  cursor:pointer;
+}
+
+img,
+video{
+  max-width:100%;
+  display:block;
+}
+
+
+/* SELECTION */
+
+::selection{
+  background:var(--gold);
+  color:white;
+}
+
+
+/* SCROLLBAR */
+
+::-webkit-scrollbar{
+  width:6px;
+}
+
+::-webkit-scrollbar-track{
+  background:#f7f5ef;
+}
+
+::-webkit-scrollbar-thumb{
+  background:var(--gold);
+  border-radius:20px;
+}
+
+
+/* CONTAINER */
+
+.cg-container{
+
+  width:min(
+    calc(100% - 50px),
+    var(--container)
+  );
+
+  margin:auto;
+
+}
+
+
+/* =====================================================
+   PAGE LOADER
+   ===================================================== */
+
+.cg-loader{
+
+  position:fixed;
+
+  inset:0;
+
+  z-index:99999;
+
+  background:#fff;
+
+  display:flex;
+
+  align-items:center;
+
+  justify-content:center;
+
+  transition:
+    opacity .8s var(--ease),
+    visibility .8s;
+
+}
+
+.cg-loader.hide{
+
+  opacity:0;
+
+  visibility:hidden;
+
+  pointer-events:none;
+
+}
+
+.cg-loader-inner{
+
+  text-align:center;
+
+}
+
+.cg-loader-gem{
+
+  width:42px;
+
+  height:42px;
+
+  margin:auto;
+
+  transform:rotate(45deg);
+
+  border-radius:7px;
+
+  background:
+    linear-gradient(
+      135deg,
+      #f3d995,
+      #b98c42,
+      #f6e4b8
+    );
+
+  box-shadow:
+    0 12px 40px
+    rgba(196,154,82,.25);
+
+  animation:
+    loaderGem 1.5s
+    ease-in-out infinite;
+
+}
+
+@keyframes loaderGem{
+
+  0%,100%{
+    transform:rotate(45deg) scale(.9);
+  }
+
+  50%{
+    transform:rotate(225deg) scale(1);
+  }
+
+}
+
+.cg-loader-title{
+
+  margin-top:25px;
+
+  font-family:"Playfair Display",serif;
+
+  font-size:25px;
+
+}
+
+.cg-loader-sub{
+
+  margin-top:7px;
+
+  font-size:8px;
+
+  letter-spacing:.25em;
+
+  text-transform:uppercase;
+
+  color:#999082;
+
+}
+
+
+/* =====================================================
+   TOP STRIP
+   ===================================================== */
+
+.cg-topbar{
+
+  min-height:34px;
+
+  display:flex;
+
+  align-items:center;
+
+  justify-content:center;
+
+  padding:7px 15px;
+
+  background:
+    linear-gradient(
+      90deg,
+      #fff8e8,
+      #fff,
+      #fff5e4
+    );
+
+  border-bottom:
+    1px solid rgba(196,154,82,.14);
+
+  color:#806d4e;
+
+  font-size:8px;
+
+  font-weight:600;
+
+  letter-spacing:.2em;
+
+  text-transform:uppercase;
+
+  text-align:center;
+
+}
+
+
+/* =====================================================
+   NAVIGATION
+   ===================================================== */
+
+.cg-nav{
+
+  position:relative;
+
+  z-index:1000;
+
+  background:
+    rgba(255,255,255,.88);
+
+  border-bottom:
+    1px solid var(--line);
+
+  backdrop-filter:blur(18px);
+
+  -webkit-backdrop-filter:blur(18px);
+
+  transition:
+    box-shadow .4s ease,
+    background .4s ease;
+
+}
+
+.cg-nav.scrolled{
+
+  position:fixed;
+
+  top:0;
+  left:0;
+  right:0;
+
+  background:
+    rgba(255,255,255,.96);
+
+  box-shadow:
+    0 15px 45px
+    rgba(30,25,15,.07);
+
+}
+
+.cg-nav-inner{
+
+  width:min(
+    calc(100% - 50px),
+    var(--container)
+  );
+
+  min-height:76px;
+
+  margin:auto;
+
+  display:flex;
+
+  align-items:center;
+
+  justify-content:space-between;
+
+  gap:25px;
+
+}
+
+
+/* LOGO */
+
+.cg-logo{
+
+  display:flex;
+
+  align-items:center;
+
+  gap:12px;
+
+  min-width:205px;
+
+}
+
+.cg-logo-gem{
+
+  width:34px;
+
+  height:34px;
+
+  transform:rotate(45deg);
+
+  border-radius:6px;
+
+  background:
+    linear-gradient(
+      135deg,
+      #f5d991,
+      #b98c43,
+      #f3dfaa
+    );
+
+  box-shadow:
+    0 8px 22px
+    rgba(196,154,82,.2);
+
+}
+
+.cg-logo-text{
+
+  display:flex;
+
+  flex-direction:column;
+
+}
+
+.cg-logo-name{
+
+  font-family:"Playfair Display",serif;
+
+  font-size:19px;
+
+  line-height:1;
+
+}
+
+.cg-logo-tag{
+
+  margin-top:4px;
+
+  font-size:6px;
+
+  letter-spacing:.23em;
+
+  text-transform:uppercase;
+
+  color:#918777;
+
+}
+
+
+/* DESKTOP LINKS */
+
+.cg-links{
+
+  display:flex;
+
+  align-items:center;
+
+  justify-content:center;
+
+  gap:30px;
+
+  flex:1;
+
+}
+
+.cg-link{
+
+  position:relative;
+
+  padding:8px 0;
+
+  color:#55514a;
+
+  font-size:10px;
+
+  font-weight:600;
+
+  letter-spacing:.1em;
+
+  text-transform:uppercase;
+
+  transition:
+    color .3s ease;
+
+}
+
+.cg-link::after{
+
+  content:"";
+
+  position:absolute;
+
+  left:0;
+
+  bottom:0;
+
+  width:0;
+
+  height:1px;
+
+  background:var(--gold);
+
+  transition:
+    width .4s var(--ease);
+
+}
+
+.cg-link:hover{
+  color:#111;
+}
+
+.cg-link:hover::after{
+  width:100%;
+}
+
+
+/* ACTIONS */
+
+.cg-actions{
+
+  display:flex;
+
+  align-items:center;
+
+  gap:7px;
+
+}
+
+.cg-action{
+
+  width:38px;
+
+  height:38px;
+
+  display:flex;
+
+  align-items:center;
+
+  justify-content:center;
+
+  border:
+    1px solid var(--line);
+
+  border-radius:50%;
+
+  background:#fff;
+
+  transition:
+    .35s var(--ease);
+
+}
+
+.cg-action:hover{
+
+  transform:translateY(-3px);
+
+  border-color:
+    rgba(196,154,82,.5);
+
+  box-shadow:
+    0 10px 25px
+    rgba(196,154,82,.12);
+
+}
+
+.cg-action svg{
+
+  width:15px;
+
+  height:15px;
+
+  fill:none;
+
+  stroke:#292929;
+
+  stroke-width:1.5;
+
+}
+
+
+/* MOBILE BUTTON */
+
+.cg-mobile{
+
+  display:none;
+
+  width:40px;
+
+  height:40px;
+
+  align-items:center;
+
+  justify-content:center;
+
+  border:
+    1px solid var(--line);
+
+  border-radius:50%;
+
+  background:#fff;
+
+}
+
+.cg-mobile span{
+
+  display:block;
+
+  width:16px;
+
+  height:1px;
+
+  margin:4px 0;
+
+  background:#222;
+
+}
+
+
+/* =====================================================
+   MOBILE
+   ===================================================== */
+
+@media(max-width:850px){
+
+  .cg-links{
+    display:none;
+  }
+
+  .cg-action.search,
+  .cg-action.account{
+    display:none;
+  }
+
+  .cg-mobile{
+    display:block;
+  }
+
+  .cg-logo{
+    min-width:auto;
+  }
+
+  .cg-logo-name{
+    font-size:17px;
+  }
+
+}
+
+@media(max-width:500px){
+
+  .cg-topbar{
+
+    font-size:6px;
+
+    letter-spacing:.13em;
+
+  }
+
+  .cg-nav-inner{
+
+    width:
+      calc(100% - 30px);
+
+    min-height:68px;
+
+  }
+
+  .cg-logo-gem{
+
+    width:29px;
+    height:29px;
+
+  }
+
+  .cg-logo-tag{
+    font-size:5px;
+  }
+
+  .cg-action{
+    width:35px;
+    height:35px;
+  }
+
+}
+
+</style>
+```1
+  <!-- =====================================================
+     PART 1B
+     HERO / CINEMATIC GEMSTONE EXPERIENCE
+     ===================================================== -->
+
+</head>
+
+<body>
+
+
+<!-- =====================================================
+     LOADER
+     ===================================================== -->
+
+<div class="cg-loader" id="cgLoader">
+
+  <div class="cg-loader-inner">
+
+    <div class="cg-loader-gem"></div>
+
+    <div class="cg-loader-title">
+      Ceremonial Gems
+    </div>
+
+    <div class="cg-loader-sub">
+      Rare Stones · Timeless Stories
+    </div>
+
+  </div>
+
+</div>
+
+
+<!-- =====================================================
+     TOP BAR
+     ===================================================== -->
+
+<div class="cg-topbar">
+
+  Natural Gemstones
+  &nbsp; · &nbsp;
+  Exceptional Colour
+  &nbsp; · &nbsp;
+  Worldwide Selection
+
+</div>
+
+
+<!-- =====================================================
+     NAVIGATION
+     ===================================================== -->
+
+<header class="cg-nav" id="cgNav">
+
+  <div class="cg-nav-inner">
+
+
+    <a href="#home" class="cg-logo">
+
+      <div class="cg-logo-gem"></div>
+
+      <div class="cg-logo-text">
+
+        <div class="cg-logo-name">
+          Ceremonial Gems
+        </div>
+
+        <div class="cg-logo-tag">
+          We Serve Memories
+        </div>
+
+      </div>
+
+    </a>
+
+
+    <nav class="cg-links">
+
+      <a href="#collections" class="cg-link">
+        Collections
+      </a>
+
+      <a href="#gemstones" class="cg-link">
+        Gemstones
+      </a>
+
+      <a href="#origins" class="cg-link">
+        Origins
+      </a>
+
+      <a href="#story" class="cg-link">
+        Our Story
+      </a>
+
+      <a href="#contact" class="cg-link">
+        Contact
+      </a>
+
+    </nav>
+
+
+    <div class="cg-actions">
+
+
+      <!-- SEARCH -->
+
+      <button class="cg-action search"
+              aria-label="Search">
+
+        <svg viewBox="0 0 24 24">
+
+          <circle cx="11"
+                  cy="11"
+                  r="6.5">
+          </circle>
+
+          <path d="M16 16L21 21">
+          </path>
+
+        </svg>
+
+      </button>
+
+
+      <!-- ACCOUNT -->
+
+      <button class="cg-action account"
+              aria-label="Account">
+
+        <svg viewBox="0 0 24 24">
+
+          <circle cx="12"
+                  cy="8"
+                  r="3.5">
+          </circle>
+
+          <path d="M5 20c1-4 3.3-6 7-6s6 2 7 6">
+          </path>
+
+        </svg>
+
+      </button>
+
+
+      <!-- WISHLIST -->
+
+      <button class="cg-action"
+              aria-label="Wishlist">
+
+        <svg viewBox="0 0 24 24">
+
+          <path d="
+            M20.8 8.8
+            C20.8 13.5 12 19 12 19
+            S3.2 13.5 3.2 8.8
+            C3.2 6 5.1 4 7.7 4
+            C9.5 4 11 4.9 12 6.3
+            C13 4.9 14.5 4 16.3 4
+            C18.9 4 20.8 6 20.8 8.8Z">
+          </path>
+
+        </svg>
+
+      </button>
+
+
+      <!-- BAG -->
+
+      <button class="cg-action"
+              aria-label="Shopping bag">
+
+        <svg viewBox="0 0 24 24">
+
+          <path d="M6 8h12l1 12H5L6 8Z">
+          </path>
+
+          <path d="M9 9V6a3 3 0 0 1 6 0v3">
+          </path>
+
+        </svg>
+
+      </button>
+
+
+      <!-- MOBILE -->
+
+      <button class="cg-mobile"
+              id="cgMobile"
+              aria-label="Open menu">
+
+        <span></span>
+        <span></span>
+
+      </button>
+
+    </div>
+
+  </div>
+
+</header>
+
+
+<!-- =====================================================
+     HERO START
+     ===================================================== -->
+
+<main>
+
+<section class="cg-hero" id="home">
+
+
+  <!-- ===================================================
+       TEMPORARY YOUTUBE GEMSTONE VIDEO
+
+       VIDEO_ID ko baad mein actual YouTube ID se replace
+       karenge.
+       =================================================== -->
+
+  <div class="cg-hero-video">
+
+    <iframe
+      src="https://www.youtube.com/embed/VIDEO_ID?autoplay=1&mute=1&loop=1&playlist=VIDEO_ID&controls=0&rel=0&modestbranding=1&playsinline=1"
+      title="Luxury Gemstone Cinematic"
+      allow="autoplay; fullscreen"
+      allowfullscreen>
+    </iframe>
+
+  </div>
+
+
+  <!-- ===================================================
+       HERO LIGHT
+       =================================================== -->
+
+  <div class="cg-hero-light one"></div>
+
+  <div class="cg-hero-light two"></div>
+
+
+  <!-- ===================================================
+       HERO CONTENT
+       =================================================== -->
+
+  <div class="cg-hero-content">
+
+    <div class="cg-hero-eyebrow">
+
+      Exceptional Natural Gemstones
+
+    </div>
+
+
+    <h1 class="cg-hero-title">
+
+      Nature's
+      <br>
+
+      <em>rarest</em>
+      treasures.
+
+    </h1>
+
+
+    <p class="cg-hero-description">
+
+      Discover extraordinary gemstones shaped by nature —
+      selected for their colour, character and timeless beauty.
+
+    </p>
+
+
+    <div class="cg-hero-buttons">
+
+      <a href="#collections"
+         class="cg-btn cg-btn-primary">
+
+        Explore Collection
+
+        <span class="cg-btn-arrow">
+          →
+        </span>
+
+      </a>
+
+
+      <a href="#story"
+         class="cg-btn cg-btn-outline">
+
+        Discover Our Story
+
+        <span class="cg-btn-arrow">
+          →
+        </span>
+
+      </a>
+
+    </div>
+
+  </div>
+
+
+  <!-- ===================================================
+       FLOATING GEMSTONE DETAILS
+       =================================================== -->
+
+  <div class="cg-floating-gem emerald"></div>
+
+  <div class="cg-floating-gem ruby"></div>
+
+  <div class="cg-floating-gem sapphire"></div>
+
+
+  <!-- ===================================================
+       SCROLL INDICATOR
+       =================================================== -->
+
+  <div class="cg-hero-side">
+
+    <div class="cg-scroll-label">
+      Scroll to discover
+    </div>
+
+    <div class="cg-scroll-line"></div>
+
+  </div>
+
+
+  <!-- ===================================================
+       HERO STATS
+       =================================================== -->
+
+  <div class="cg-hero-stats">
+
+    <div class="cg-stat">
+
+      <div class="cg-stat-number">
+        01
+      </div>
+
+      <div class="cg-stat-label">
+        Natural Stones
+      </div>
+
+    </div>
+
+
+    <div class="cg-stat">
+
+      <div class="cg-stat-number">
+        ∞
+      </div>
+
+      <div class="cg-stat-label">
+        Stories Within
+      </div>
+
+    </div>
+
+
+    <div class="cg-stat">
+
+      <div class="cg-stat-number">
+        Jaipur
+      </div>
+
+      <div class="cg-stat-label">
+        India
+      </div>
+
+    </div>
+
+  </div>
+
+
+</section>
+
+
+<!-- =====================================================
+     INTRO STRIP
+     ===================================================== -->
+
+<section class="cg-intro-strip">
+
+  <div class="cg-intro-inner">
+
+    <div class="cg-intro-label">
+      The Ceremonial Edit
+    </div>
+
+
+    <h2 class="cg-intro-title">
+
+      Every stone carries a story.
+      <br>
+
+      <span>Find yours.</span>
+
+    </h2>
+
+
+    <a href="#collections"
+       class="cg-intro-link">
+
+      Explore Collection
+
+      <i>→</i>
+
+    </a>
+
+  </div>
+
+</section>
+/* =========================================================
+   PART 1C — CINEMATIC HERO
+   ========================================================= */
+
+.cg-hero{
+  position:relative;
+  min-height:calc(100svh - 78px);
+  width:100%;
+  overflow:hidden;
+  display:flex;
+  align-items:center;
+  isolation:isolate;
+  background:
+    radial-gradient(circle at 78% 22%,rgba(225,174,53,.20),transparent 24%),
+    radial-gradient(circle at 90% 72%,rgba(8,125,101,.16),transparent 25%),
+    linear-gradient(115deg,#fff 0%,#fbfaf7 48%,#f3eee4 100%);
+}
+
+.cg-hero-video{
+  position:absolute;
+  inset:0;
+  z-index:-5;
+  overflow:hidden;
+  background:#f7f3ea;
+}
+
+.cg-hero-video iframe{
+  position:absolute;
+  top:50%;
+  left:50%;
+  width:177.78vh;
+  min-width:100%;
+  height:56.25vw;
+  min-height:100%;
+  transform:translate(-50%,-50%) scale(1.08);
+  border:0;
+  pointer-events:none;
+  opacity:.62;
+  filter:saturate(1.15) contrast(1.02);
+}
+
+.cg-hero-video::after{
+  content:"";
+  position:absolute;
+  inset:0;
+  background:
+    linear-gradient(
+      90deg,
+      rgba(255,255,255,.98) 0%,
+      rgba(255,255,255,.91) 30%,
+      rgba(255,255,255,.50) 54%,
+      rgba(255,255,255,.10) 100%
+    ),
+    linear-gradient(
+      180deg,
+      rgba(255,255,255,.15),
+      transparent 45%,
+      rgba(255,255,255,.24)
+    );
+}
+
+.cg-hero-light{
+  position:absolute;
+  inset:auto;
+  width:520px;
+  height:520px;
+  right:-170px;
+  top:10%;
+  border-radius:50%;
+  background:rgba(225,174,53,.22);
+  filter:blur(80px);
+  z-index:-2;
+  animation:heroGlow 8s ease-in-out infinite alternate;
+}
+
+.cg-hero-light::after{
+  content:"";
+  position:absolute;
+  width:330px;
+  height:330px;
+  left:-180px;
+  top:250px;
+  border-radius:50%;
+  background:rgba(8,125,101,.15);
+  filter:blur(70px);
+}
+
+.cg-hero-content{
+  width:min(1380px,100%);
+  margin:auto;
+  padding:
+    110px
+    clamp(22px,5vw,70px)
+    90px;
+  position:relative;
+  z-index:5;
+}
+
+.cg-hero-copy{
+  width:min(680px,100%);
+}
+
+.cg-hero-eyebrow{
+  display:flex;
+  align-items:center;
+  gap:12px;
+  margin-bottom:24px;
+  font-size:11px;
+  font-weight:700;
+  letter-spacing:.20em;
+  text-transform:uppercase;
+  color:#655d51;
+  animation:heroFade .9s var(--ease) both;
+}
+
+.cg-hero-eyebrow::before{
+  content:"";
+  width:42px;
+  height:1px;
+  background:var(--gold);
+}
+
+.cg-hero-title{
+  margin:0;
+  max-width:720px;
+  font-family:"Playfair Display",serif;
+  font-size:clamp(52px,7.2vw,108px);
+  line-height:.91;
+  letter-spacing:-.055em;
+  font-weight:500;
+  color:#171717;
+  animation:heroTitle 1.05s var(--ease) .08s both;
+}
+
+.cg-hero-title span{
+  display:block;
+  font-style:italic;
+  font-weight:400;
+  background:
+    linear-gradient(
+      100deg,
+      #b88836,
+      #dfb965 38%,
+      #087d65 72%,
+      #3768d5
+    );
+  -webkit-background-clip:text;
+  background-clip:text;
+  color:transparent;
+}
+
+.cg-hero-description{
+  max-width:530px;
+  margin:32px 0 0;
+  font-size:15px;
+  line-height:1.8;
+  color:#625f58;
+  animation:heroFade .9s var(--ease) .22s both;
+}
+
+.cg-hero-actions{
+  display:flex;
+  flex-wrap:wrap;
+  gap:12px;
+  margin-top:34px;
+  animation:heroFade .9s var(--ease) .34s both;
+}
+
+.cg-btn{
+  min-height:52px;
+  padding:0 22px;
+  display:inline-flex;
+  align-items:center;
+  justify-content:center;
+  gap:10px;
+  border-radius:999px;
+  text-decoration:none;
+  font-size:12px;
+  font-weight:700;
+  letter-spacing:.04em;
+  transition:
+    transform .4s var(--ease),
+    box-shadow .4s var(--ease),
+    background .4s var(--ease);
+}
+
+.cg-btn:hover{
+  transform:translateY(-4px);
+}
+
+.cg-btn-primary{
+  color:#fff;
+  background:#171717;
+  box-shadow:0 15px 35px rgba(0,0,0,.14);
+}
+
+.cg-btn-primary:hover{
+  box-shadow:0 20px 45px rgba(0,0,0,.20);
+}
+
+.cg-btn-secondary{
+  color:#26231f;
+  background:rgba(255,255,255,.76);
+  border:1px solid rgba(20,20,20,.10);
+  backdrop-filter:blur(14px);
+}
+
+.cg-btn-arrow{
+  font-size:16px;
+  transition:transform .35s var(--ease);
+}
+
+.cg-btn:hover .cg-btn-arrow{
+  transform:translateX(4px);
+}
+
+/* FLOATING GEMS */
+
+.cg-floating-gem{
+  position:absolute;
+  z-index:3;
+  pointer-events:none;
+  border-radius:42% 58% 55% 45%;
+  transform:rotate(22deg);
+  box-shadow:
+    inset -18px -18px 35px rgba(0,0,0,.16),
+    inset 15px 15px 28px rgba(255,255,255,.45),
+    0 28px 55px rgba(0,0,0,.12);
+  animation:
+    gemFloat 7s ease-in-out infinite;
+}
+
+.cg-floating-gem::before{
+  content:"";
+  position:absolute;
+  width:32%;
+  height:22%;
+  left:17%;
+  top:14%;
+  border-radius:50%;
+  background:rgba(255,255,255,.70);
+  filter:blur(3px);
+}
+
+.cg-gem-emerald{
+  width:82px;
+  height:105px;
+  right:15%;
+  top:18%;
+  background:
+    linear-gradient(135deg,#75d2af,#087d65 48%,#034f43);
+  animation-delay:-2s;
+}
+
+.cg-gem-ruby{
+  width:60px;
+  height:75px;
+  right:31%;
+  bottom:19%;
+  background:
+    linear-gradient(135deg,#ff9cad,#c72d4d 52%,#7d102d);
+  animation-delay:-4s;
+}
+
+.cg-gem-sapphire{
+  width:48px;
+  height:61px;
+  right:7%;
+  bottom:30%;
+  background:
+    linear-gradient(135deg,#a9c6ff,#3768d5 48%,#18357e);
+  animation-delay:-1s;
+}
+
+/* HERO STATS */
+
+.cg-hero-stats{
+  display:flex;
+  gap:34px;
+  margin-top:76px;
+  animation:heroFade .9s var(--ease) .48s both;
+}
+
+.cg-hero-stat{
+  position:relative;
+  padding-left:14px;
+}
+
+.cg-hero-stat::before{
+  content:"";
+  position:absolute;
+  left:0;
+  top:3px;
+  bottom:3px;
+  width:2px;
+  border-radius:10px;
+  background:var(--gold);
+}
+
+.cg-hero-stat strong{
+  display:block;
+  font-family:"Playfair Display",serif;
+  font-size:21px;
+  font-weight:500;
+  color:#222;
+}
+
+.cg-hero-stat small{
+  display:block;
+  margin-top:4px;
+  font-size:9px;
+  font-weight:700;
+  letter-spacing:.14em;
+  text-transform:uppercase;
+  color:#89837a;
+}
+
+/* SCROLL */
+
+.cg-scroll{
+  position:absolute;
+  right:clamp(22px,4vw,58px);
+  bottom:34px;
+  display:flex;
+  align-items:center;
+  gap:12px;
+  z-index:7;
+  font-size:9px;
+  font-weight:700;
+  letter-spacing:.18em;
+  text-transform:uppercase;
+  color:#746d62;
+  writing-mode:vertical-rl;
+}
+
+.cg-scroll-line{
+  width:1px;
+  height:60px;
+  background:linear-gradient(
+    to bottom,
+    var(--gold),
+    transparent
+  );
+  animation:scrollLine 2s ease-in-out infinite;
+}
+
+/* INTRO STRIP */
+
+.cg-intro-strip{
+  position:relative;
+  display:grid;
+  grid-template-columns:1fr auto 1fr;
+  align-items:center;
+  gap:30px;
+  padding:28px clamp(22px,5vw,70px);
+  background:#f4efe5;
+  border-top:1px solid rgba(20,20,20,.06);
+  border-bottom:1px solid rgba(20,20,20,.06);
+}
+
+.cg-intro-label{
+  font-size:10px;
+  font-weight:700;
+  letter-spacing:.18em;
+  text-transform:uppercase;
+  color:#81786c;
+}
+
+.cg-intro-title{
+  font-family:"Playfair Display",serif;
+  font-size:clamp(20px,2.2vw,31px);
+  color:#28251f;
+}
+
+.cg-intro-link{
+  justify-self:end;
+  display:flex;
+  align-items:center;
+  gap:8px;
+  color:#222;
+  font-size:11px;
+  font-weight:700;
+  text-decoration:none;
+  text-transform:uppercase;
+  letter-spacing:.12em;
+}
+
+.cg-intro-link span{
+  transition:transform .3s var(--ease);
+}
+
+.cg-intro-link:hover span{
+  transform:translateX(5px);
+}
+
+/* ANIMATIONS */
+
+@keyframes heroFade{
+  from{
+    opacity:0;
+    transform:translateY(24px);
+  }
+  to{
+    opacity:1;
+    transform:translateY(0);
+  }
+}
+
+@keyframes heroTitle{
+  from{
+    opacity:0;
+    transform:translateY(42px);
+    filter:blur(10px);
+  }
+  to{
+    opacity:1;
+    transform:translateY(0);
+    filter:blur(0);
+  }
+}
+
+@keyframes gemFloat{
+  0%,100%{
+    transform:translate3d(0,0,0) rotate(22deg);
+  }
+  50%{
+    transform:translate3d(0,-22px,0) rotate(31deg);
+  }
+}
+
+@keyframes heroGlow{
+  from{
+    transform:scale(.9) translate3d(0,0,0);
+  }
+  to{
+    transform:scale(1.15) translate3d(-30px,25px,0);
+  }
+}
+
+@keyframes scrollLine{
+  0%,100%{
+    opacity:.35;
+    transform:scaleY(.7);
+    transform-origin:top;
+  }
+  50%{
+    opacity:1;
+    transform:scaleY(1);
+  }
+}
+
+/* MOBILE HERO */
+
+@media(max-width:850px){
+
+  .cg-hero{
+    min-height:calc(100svh - 68px);
+    align-items:flex-end;
+  }
+
+  .cg-hero-video iframe{
+    width:220vh;
+    height:100vh;
+    opacity:.42;
+    transform:translate(-50%,-50%) scale(1.18);
+  }
+
+  .cg-hero-video::after{
+    background:
+      linear-gradient(
+        180deg,
+        rgba(255,255,255,.30) 0%,
+        rgba(255,255,255,.58) 38%,
+        rgba(255,255,255,.94) 67%,
+        rgba(255,255,255,1) 100%
+      );
+  }
+
+  .cg-hero-content{
+    padding:
+      100px
+      22px
+      54px;
+  }
+
+  .cg-hero-copy{
+    width:100%;
+  }
+
+  .cg-hero-eyebrow{
+    margin-bottom:18px;
+    font-size:9px;
+  }
+
+  .cg-hero-title{
+    font-size:clamp(48px,15vw,76px);
+    line-height:.94;
+  }
+
+  .cg-hero-description{
+    margin-top:22px;
+    font-size:14px;
+    line-height:1.65;
+    max-width:470px;
+  }
+
+  .cg-hero-actions{
+    margin-top:26px;
+  }
+
+  .cg-btn{
+    min-height:48px;
+    padding:0 18px;
+    font-size:10px;
+  }
+
+  .cg-hero-stats{
+    margin-top:42px;
+    gap:20px;
+  }
+
+  .cg-hero-stat strong{
+    font-size:17px;
+  }
+
+  .cg-hero-stat small{
+    font-size:7px;
+  }
+
+  .cg-floating-gem{
+    opacity:.72;
+  }
+
+  .cg-gem-emerald{
+    width:52px;
+    height:67px;
+    right:8%;
+    top:15%;
+  }
+
+  .cg-gem-ruby{
+    width:40px;
+    height:51px;
+    right:28%;
+    bottom:31%;
+  }
+
+  .cg-gem-sapphire{
+    width:34px;
+    height:44px;
+    right:4%;
+    bottom:39%;
+  }
+
+  .cg-scroll{
+    display:none;
+  }
+
+  .cg-intro-strip{
+    grid-template-columns:1fr;
+    gap:10px;
+    padding:25px 22px;
+  }
+
+  .cg-intro-link{
+    justify-self:start;
+    margin-top:6px;
+  }
+}
+
+@media(max-width:500px){
+
+  .cg-hero{
+    min-height:calc(100svh - 64px);
+  }
+
+  .cg-hero-content{
+    padding:
+      90px
+      20px
+      42px;
+  }
+
+  .cg-hero-title{
+    font-size:52px;
+  }
+
+  .cg-hero-description{
+    max-width:330px;
+  }
+
+  .cg-hero-actions{
+    flex-direction:column;
+    align-items:stretch;
+  }
+
+  .cg-btn{
+    width:100%;
+  }
+
+  .cg-hero-stats{
+    gap:14px;
+  }
+
+  .cg-hero-stat{
+    padding-left:9px;
+  }
+
+  .cg-hero-stat strong{
+    font-size:15px;
+  }
+
+  .cg-hero-stat small{
+    font-size:6.5px;
+    letter-spacing:.10em;
+  }
+
+  .cg-gem-emerald{
+    right:3%;
+    top:13%;
+  }
+
+  .cg-gem-ruby{
+    right:19%;
+    bottom:30%;
+  }
+
+  .cg-gem-sapphire{
+    right:2%;
+    bottom:43%;
+  }
+}
